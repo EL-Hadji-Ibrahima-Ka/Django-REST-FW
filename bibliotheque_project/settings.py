@@ -43,6 +43,10 @@ ALLOWED_HOSTS = [
 if os.environ.get('RAILWAY_ENVIRONMENT'):
     ALLOWED_HOSTS = ['*']
 
+# PythonAnywhere fournit une URL spécifique via la variable d'environnement PYTHONANYWHERE_SITE
+if os.environ.get('PYTHONANYWHERE_SITE'):
+    ALLOWED_HOSTS = [os.environ.get('PYTHONANYWHERE_SITE')]
+
 
 # Application definition
 
@@ -187,4 +191,5 @@ CSRF_TRUSTED_ORIGINS = [
     'https://bibliotheque-project.onrender.com',
     'https://*.up.railway.app',
     'https://*.railway.app',
+    'https://*.pythonanywhere.com',
 ]
