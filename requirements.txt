@@ -20,7 +20,7 @@ certifi==2025.11.12
 charset-normalizer==3.4.4
 idna==3.11
 
-Pillow==10.4.0
+
 
 packaging==25.0
 six==1.17.0
