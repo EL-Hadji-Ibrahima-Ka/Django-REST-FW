@@ -35,7 +35,13 @@ ALLOWED_HOSTS = [
     'bibliotheque-project.onrender.com',
     '127.0.0.1',
     'localhost',
+    '*',
 ]
+
+# Railway fournit une URL dynamique via la variable d'environnement RAILWAY_STATIC_URL
+# ou on peut utiliser '*' pour accepter tous les hôtes en développement
+if os.environ.get('RAILWAY_ENVIRONMENT'):
+    ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -179,4 +185,6 @@ SIMPLE_JWT = {
 # Obligatoire pour Django 4.x : autorise les requêtes POST (admin, formulaires)
 CSRF_TRUSTED_ORIGINS = [
     'https://bibliotheque-project.onrender.com',
+    'https://*.up.railway.app',
+    'https://*.railway.app',
 ]
